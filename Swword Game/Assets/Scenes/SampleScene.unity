@@ -1148,7 +1148,7 @@ PrefabInstance:
     - target: {fileID: -8770979921238421337, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 021a143ad6394724d91d039b5e942259, type: 2}
+      objectReference: {fileID: 2100000, guid: 46ef802f919b47e4485dc4feedaa640f, type: 2}
     - target: {fileID: -8679921383154817045, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.101215996
@@ -1204,15 +1204,15 @@ PrefabInstance:
     - target: {fileID: -7239691957459460415, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 021a143ad6394724d91d039b5e942259, type: 2}
+      objectReference: {fileID: 2100000, guid: 46ef802f919b47e4485dc4feedaa640f, type: 2}
     - target: {fileID: -6085835970948274028, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 021a143ad6394724d91d039b5e942259, type: 2}
+      objectReference: {fileID: 2100000, guid: 46ef802f919b47e4485dc4feedaa640f, type: 2}
     - target: {fileID: -833329535755122963, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 021a143ad6394724d91d039b5e942259, type: 2}
+      objectReference: {fileID: 2100000, guid: 46ef802f919b47e4485dc4feedaa640f, type: 2}
     - target: {fileID: 919132149155446097, guid: 621f19f9316ece54bb8f0e00cffbf9a6, type: 3}
       propertyPath: m_Name
       value: Hand Made Swords
