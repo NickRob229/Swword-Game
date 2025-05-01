@@ -6,6 +6,8 @@ public class DirectionalSelector : MonoBehaviour
     public RectTransform topArrow, bottomArrow, leftArrow, rightArrow;
     public float moveDistance = 20f;
     public float selectionRadius = 50f; // virtual mouse stays in this circle
+    public RectTransform virtualCursor;
+    public float cursorFollowSpeed = 20f;
 
     private Vector2 virtualMouse; // simulated position
     private Vector2 center;
@@ -35,6 +37,17 @@ public class DirectionalSelector : MonoBehaviour
         }
 
         UpdateArrows(virtualMouse.normalized);
+
+        // Move the reticle to match the virtual cursor
+        if (virtualCursor != null)
+        {
+            virtualCursor.anchoredPosition = Vector2.Lerp(
+                virtualCursor.anchoredPosition,
+                virtualMouse,
+                Time.deltaTime * cursorFollowSpeed
+            );
+        }
+
     }
 
     void UpdateArrows(Vector2 dir)
