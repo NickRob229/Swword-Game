@@ -17,9 +17,6 @@ public class DirectionalSelector : MonoBehaviour
         // Start with center of screen
         center = new Vector2(Screen.width / 2f, Screen.height / 2f);
         virtualMouse = Vector2.zero;
-
-        Cursor.lockState = CursorLockMode.Locked; // Allows Mouse X/Y input
-        Cursor.visible = true; // We’ll simulate a pointer with UI if needed
     }
 
     void Update()
