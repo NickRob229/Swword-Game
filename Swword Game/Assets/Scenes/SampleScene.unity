@@ -3256,10 +3256,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1397311378}
-  - {fileID: 1016383375}
   - {fileID: 1437947833}
   - {fileID: 2125705544}
+  - {fileID: 1397311378}
+  - {fileID: 1016383375}
   - {fileID: 1099746313}
   m_Father: {fileID: 882603324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4267,7 +4267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6278a34674b6cb468a063e6a1c7fc9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c390a47d26495b48bd149f6e75d3f4e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5029,10 +5029,14 @@ MonoBehaviour:
   bottomArrow: {fileID: 2125705544}
   leftArrow: {fileID: 1397311378}
   rightArrow: {fileID: 1016383375}
+  topArrowImage: {fileID: 1437947834}
+  bottomArrowImage: {fileID: 2125705545}
+  leftArrowImage: {fileID: 1397311379}
+  rightArrowImage: {fileID: 1016383376}
   moveDistance: 20
   selectionRadius: 20
   virtualCursor: {fileID: 1099746313}
-  cursorFollowSpeed: 20
+  cursorFollowSpeed: 10
 --- !u!114 &1340367903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,7 +5537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d8b19e0a90fb7b45ac5d0fae7dc1580, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fdd2af234ef7cd34a969cbd857e16311, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5700,7 +5704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccbdf16aee4ce1040971ed6fd7219809, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82202f2ab95fdcb41a13e37f096747d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9536,7 +9540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 883bfc518b133f64d94d07d7c78e274f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 468901a4c518ad5469c42fe403ca50b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
