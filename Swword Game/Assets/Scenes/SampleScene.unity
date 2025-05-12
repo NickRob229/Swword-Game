@@ -5037,6 +5037,10 @@ MonoBehaviour:
   selectionRadius: 20
   virtualCursor: {fileID: 1099746313}
   cursorFollowSpeed: 10
+  lightAttackCooldown: 0.5
+  heavyAttackCooldown: 1.5
+  defaultColour: {r: 1, g: 1, b: 1, a: 1}
+  changeColour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1340367903
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,10 @@ public class DirectionalSelector : MonoBehaviour
     public float selectionRadius = 50f; // virtual mouse stays in this circle
     public RectTransform virtualCursor;
     public float cursorFollowSpeed = 20f;
+    public float lightAttackCooldown = 0.5f;
+    public float heavyAttackCooldown = 1.5f;
+    public Color defaultColour = Color.white;
+    public Color changeColour = Color.red;
 
     private Vector2 virtualMouse; // simulated position
     private Vector2 center;
@@ -51,11 +55,11 @@ public class DirectionalSelector : MonoBehaviour
         // Trigger highlight manually for testing
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            HighlightSelectedArrow(1f); // Light attack = 1 sec
+            HighlightSelectedArrow(lightAttackCooldown); // Light attack = 1 sec
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            HighlightSelectedArrow(2f); // Heavy attack = 2 sec
+            HighlightSelectedArrow(heavyAttackCooldown); // Heavy attack = 2 sec
         }
     }
 
@@ -118,7 +122,7 @@ public class DirectionalSelector : MonoBehaviour
         if (currentHighlightedImage != null)
         {
             StopAllCoroutines();
-            StartCoroutine(HighlightForDuration(currentHighlightedImage, Color.red, duration));
+            StartCoroutine(HighlightForDuration(currentHighlightedImage, changeColour, duration));
         }
     }
 
@@ -126,6 +130,6 @@ public class DirectionalSelector : MonoBehaviour
     {
         arrowImage.color = highlightColor;
         yield return new WaitForSeconds(duration);
-        arrowImage.color = Color.white;
+        arrowImage.color = defaultColour;
     }
 }
