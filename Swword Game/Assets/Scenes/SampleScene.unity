@@ -5029,18 +5029,14 @@ MonoBehaviour:
   bottomArrow: {fileID: 2125705544}
   leftArrow: {fileID: 1397311378}
   rightArrow: {fileID: 1016383375}
-  topArrowImage: {fileID: 1437947834}
-  bottomArrowImage: {fileID: 2125705545}
-  leftArrowImage: {fileID: 1397311379}
-  rightArrowImage: {fileID: 1016383376}
   moveDistance: 20
   selectionRadius: 20
   virtualCursor: {fileID: 1099746313}
   cursorFollowSpeed: 10
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0, b: 0, a: 1}
   lightAttackCooldown: 0.5
-  heavyAttackCooldown: 1.5
-  defaultColour: {r: 1, g: 1, b: 1, a: 1}
-  changeColour: {r: 1, g: 0, b: 0, a: 1}
+  heavyAttackCooldown: 1
 --- !u!114 &1340367903
 MonoBehaviour:
   m_ObjectHideFlags: 0

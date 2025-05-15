@@ -5,43 +5,47 @@ using System.Collections;
 public class DirectionalSelector : MonoBehaviour
 {
     public RectTransform topArrow, bottomArrow, leftArrow, rightArrow;
-    public Image topArrowImage, bottomArrowImage, leftArrowImage, rightArrowImage;
-
     public float moveDistance = 20f;
-    public float selectionRadius = 50f; // virtual mouse stays in this circle
+    public float selectionRadius = 50f;
     public RectTransform virtualCursor;
     public float cursorFollowSpeed = 20f;
-    public float lightAttackCooldown = 0.5f;
-    public float heavyAttackCooldown = 1.5f;
-    public Color defaultColour = Color.white;
-    public Color changeColour = Color.red;
 
-    private Vector2 virtualMouse; // simulated position
+    [Header("Visual Settings")]
+    public Color defaultColor = Color.white;
+    public Color highlightColor = Color.gray;
+
+    [Header("Attack Cooldowns")]
+    public float lightAttackCooldown = 1f;
+    public float heavyAttackCooldown = 2f;
+
+    private Vector2 virtualMouse;
     private Vector2 center;
-
-    private Image currentHighlightedImage;
+    private string currentDirection = "";
+    private bool isOnCooldown = false;
 
     void Start()
     {
         center = new Vector2(Screen.width / 2f, Screen.height / 2f);
         virtualMouse = Vector2.zero;
-
-        ResetArrowColors(); // Set all arrows to white at start
+        ResetArrowColors();
     }
 
     void Update()
     {
-        float deltaX = Input.GetAxis("Mouse X");
-        float deltaY = Input.GetAxis("Mouse Y");
-
-        virtualMouse += new Vector2(deltaX, deltaY) * 10f;
-
-        if (virtualMouse.magnitude > selectionRadius)
+        if (!isOnCooldown)
         {
-            virtualMouse = virtualMouse.normalized * selectionRadius;
-        }
+            float deltaX = Input.GetAxis("Mouse X");
+            float deltaY = Input.GetAxis("Mouse Y");
 
-        UpdateArrows(virtualMouse.normalized);
+            virtualMouse += new Vector2(deltaX, deltaY) * 10f;
+
+            if (virtualMouse.magnitude > selectionRadius)
+            {
+                virtualMouse = virtualMouse.normalized * selectionRadius;
+            }
+
+            UpdateArrows(virtualMouse.normalized);
+        }
 
         if (virtualCursor != null)
         {
@@ -52,14 +56,16 @@ public class DirectionalSelector : MonoBehaviour
             );
         }
 
-        // Trigger highlight manually for testing
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!isOnCooldown)
         {
-            HighlightSelectedArrow(lightAttackCooldown); // Light attack = 1 sec
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            HighlightSelectedArrow(heavyAttackCooldown); // Heavy attack = 2 sec
+            if (Input.GetMouseButtonDown(0)) // Left click
+            {
+                StartCoroutine(PerformAttack("Light", lightAttackCooldown));
+            }
+            else if (Input.GetMouseButtonDown(1)) // Right click
+            {
+                StartCoroutine(PerformAttack("Heavy", heavyAttackCooldown));
+            }
         }
     }
 
@@ -69,21 +75,24 @@ public class DirectionalSelector : MonoBehaviour
 
         if (dir.magnitude < 0.2f)
         {
-            currentHighlightedImage = null;
+            currentDirection = "";
+            ResetArrowColors(); // No input, reset visuals
             return;
         }
+
+        ResetArrowColors(); // Only reset color when not on cooldown
 
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
             if (dir.x > 0)
             {
                 rightArrow.anchoredPosition = new Vector2(40 + moveDistance, 0);
-                currentHighlightedImage = rightArrowImage;
+                currentDirection = "Right";
             }
             else
             {
                 leftArrow.anchoredPosition = new Vector2(-40 - moveDistance, 0);
-                currentHighlightedImage = leftArrowImage;
+                currentDirection = "Left";
             }
         }
         else
@@ -91,12 +100,12 @@ public class DirectionalSelector : MonoBehaviour
             if (dir.y > 0)
             {
                 topArrow.anchoredPosition = new Vector2(0, 40 + moveDistance);
-                currentHighlightedImage = topArrowImage;
+                currentDirection = "Top";
             }
             else
             {
                 bottomArrow.anchoredPosition = new Vector2(0, -40 - moveDistance);
-                currentHighlightedImage = bottomArrowImage;
+                currentDirection = "Bottom";
             }
         }
     }
@@ -111,25 +120,38 @@ public class DirectionalSelector : MonoBehaviour
 
     void ResetArrowColors()
     {
-        topArrowImage.color = Color.white;
-        bottomArrowImage.color = Color.white;
-        leftArrowImage.color = Color.white;
-        rightArrowImage.color = Color.white;
+        topArrow.GetComponent<Image>().color = defaultColor;
+        bottomArrow.GetComponent<Image>().color = defaultColor;
+        leftArrow.GetComponent<Image>().color = defaultColor;
+        rightArrow.GetComponent<Image>().color = defaultColor;
     }
 
-    public void HighlightSelectedArrow(float duration)
+    IEnumerator PerformAttack(string attackType, float cooldown)
     {
-        if (currentHighlightedImage != null)
-        {
-            StopAllCoroutines();
-            StartCoroutine(HighlightForDuration(currentHighlightedImage, changeColour, duration));
-        }
+        if (string.IsNullOrEmpty(currentDirection)) yield break;
+
+        isOnCooldown = true;
+
+        string fullAttackName = currentDirection + " " + attackType + " Attack";
+        Debug.Log("Performing: " + fullAttackName);
+
+        HighlightSelectedArrow();
+
+        yield return new WaitForSeconds(cooldown);
+
+        ResetArrowColors();
+        isOnCooldown = false;
     }
 
-    IEnumerator HighlightForDuration(Image arrowImage, Color highlightColor, float duration)
+    void HighlightSelectedArrow()
     {
-        arrowImage.color = highlightColor;
-        yield return new WaitForSeconds(duration);
-        arrowImage.color = defaultColour;
+        if (currentDirection == "Top")
+            topArrow.GetComponent<Image>().color = highlightColor;
+        else if (currentDirection == "Bottom")
+            bottomArrow.GetComponent<Image>().color = highlightColor;
+        else if (currentDirection == "Left")
+            leftArrow.GetComponent<Image>().color = highlightColor;
+        else if (currentDirection == "Right")
+            rightArrow.GetComponent<Image>().color = highlightColor;
     }
 }
