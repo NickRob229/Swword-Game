@@ -49,13 +49,15 @@ public class MenuButtonHandler : MonoBehaviour
         // Spawn the enemy at the spawn position
         if (enemyPrefab != null)
         {
-            Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.identity);
+            spawnedEnemy.tag = "EnemyClone"; // Assign the tag after instantiation
             Debug.Log("Spawned enemy at: " + enemySpawnPosition);
         }
         else
         {
             Debug.LogWarning("Enemy Prefab is not assigned!");
         }
+
     }
 
     public void OnQuitButton()
