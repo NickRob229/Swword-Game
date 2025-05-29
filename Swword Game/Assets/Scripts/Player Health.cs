@@ -6,7 +6,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    public Slider healthBar; // Drag your floating health bar Slider here in the Inspector
+    public Slider healthBar;
+    private bool isDead = false;
 
     void Start()
     {
@@ -17,7 +18,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // Press H to take 10 damage for testing
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
+
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.value = currentHealth;
@@ -38,7 +40,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
         Debug.Log("Player died!");
-        // Add your death logic later (animation, disable controls, etc.)
+        FindObjectOfType<EndGameManager>().ShowLoserScreen();
+
+        // Optional: disable movement, play death animation, etc.
     }
 }
