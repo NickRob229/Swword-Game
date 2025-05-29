@@ -5,9 +5,6 @@ public class WeaponSelectMenu : MonoBehaviour
 {
     public GameObject weaponMenuUI;
     public Button shortswordButton;
-    public Button longswordButton;
-    public Button rapierButton;
-    public Button sabreButton;
 
     public PlayerMovement playerMovement; // Reference to your player movement script
 
@@ -22,9 +19,6 @@ public class WeaponSelectMenu : MonoBehaviour
 
         // Assign button events
         shortswordButton.onClick.AddListener(() => SelectWeapon("Short Sword"));
-        longswordButton.onClick.AddListener(() => SelectWeapon("Greatsword"));
-        rapierButton.onClick.AddListener(() => SelectWeapon("Katana"));
-        sabreButton.onClick.AddListener(() => SelectWeapon("Scimitar"));
     }
 
     void SelectWeapon(string weaponName)

@@ -18,8 +18,8 @@ public class EndGameManager : MonoBehaviour
         goBackButton.gameObject.SetActive(false);
 
         // Lock cursor on start
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void ShowWinnerScreen()

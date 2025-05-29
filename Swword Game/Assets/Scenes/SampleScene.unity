@@ -8051,7 +8051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -12.41}
+  m_AnchoredPosition: {x: -0.000030517578, y: 2.26}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603059052
@@ -8074,10 +8074,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Short Sword
+  m_text: "Short Sword \n+ \nShield"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
+  m_sharedMaterial: {fileID: 3175382146064633952, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8101,8 +8101,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -8139,7 +8139,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -51.797302}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12802,7 +12802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -12.41}
+  m_AnchoredPosition: {x: -0.000030517578, y: -1.01}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &936994148
@@ -12825,10 +12825,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sabre
+  m_text: 'Sabre
+
+    (Unavailable)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
+  m_sharedMaterial: {fileID: 3175382146064633952, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12852,8 +12854,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -18475,9 +18477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponMenuUI: {fileID: 303918116}
   shortswordButton: {fileID: 2118443938}
-  longswordButton: {fileID: 1540965001}
-  rapierButton: {fileID: 1074207470}
-  sabreButton: {fileID: 1969019298}
+  longswordButton: {fileID: 0}
+  rapierButton: {fileID: 0}
+  sabreButton: {fileID: 0}
   playerMovement: {fileID: 443190919}
 --- !u!114 &1340367905
 MonoBehaviour:
@@ -19369,7 +19371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -12.41}
+  m_AnchoredPosition: {x: -0.000030517578, y: -0.119999886}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392855703
@@ -19392,10 +19394,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Long Sword
+  m_text: 'Long Sword
+
+    (Unavailable)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
+  m_sharedMaterial: {fileID: 3175382146064633952, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19419,8 +19423,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -23386,7 +23390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -12.41}
+  m_AnchoredPosition: {x: -0.000030517578, y: -0.34}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650678251
@@ -23409,10 +23413,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rapier
+  m_text: 'Rapier
+
+    (Unavailable)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
+  m_sharedMaterial: {fileID: 3175382146064633952, guid: 90df5ae88fb88f7479cb608ce66e469d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23436,8 +23442,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -23788,8 +23794,8 @@ MonoBehaviour:
   playerStartPosition: {x: -0.18338, y: 0, z: -130.47}
   enemyPrefab: {fileID: 7133386662100640504, guid: 4f152204b76719642a9dfe410b68be4a, type: 3}
   enemySpawnPosition: {x: -0.23179, y: 0, z: -141.12}
-  enemyHealthSliderPrefab: {fileID: 0}
-  targetCanvas: {fileID: 0}
+  enemyHealthSliderPrefab: {fileID: 6979640231301433867, guid: ad99e7689d7cacc4ea700881e9e0e313, type: 3}
+  targetCanvas: {fileID: 82389590}
 --- !u!4 &1670226074
 Transform:
   m_ObjectHideFlags: 0
