@@ -17,19 +17,18 @@ public class MenuButtonHandler : MonoBehaviour
     public GameObject enemyPrefab;
     public Vector3 enemySpawnPosition;
 
+    [Header("Enemy Health UI")]
+    public GameObject enemyHealthSliderPrefab; // Slider prefab to instantiate
+    public Canvas targetCanvas; // Assign the specific Canvas here in Inspector
+
     private GameObject currentEnemyInstance;
+    private GameObject currentEnemyHealthSlider;
 
     public void OnStartButton()
     {
-        // Disable the main menu
-        if (mainMenuPanel != null)
-            mainMenuPanel.SetActive(false);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (secondMenuPanel != null) secondMenuPanel.SetActive(true);
 
-        // Enable the second menu
-        if (secondMenuPanel != null)
-            secondMenuPanel.SetActive(true);
-
-        // Move the player to the starting position
         if (playerTransform != null)
         {
             CharacterController controller = playerTransform.GetComponent<CharacterController>();
@@ -39,25 +38,47 @@ public class MenuButtonHandler : MonoBehaviour
 
             if (controller != null) controller.enabled = true;
 
-            Debug.Log("Resetting player position to: " + playerStartPosition);
+            Debug.Log("Player reset to start position: " + playerStartPosition);
         }
         else
         {
             Debug.LogWarning("Player Transform is not assigned!");
         }
 
-        // Spawn the enemy at the spawn position
-        if (enemyPrefab != null)
+        if (currentEnemyInstance != null) Destroy(currentEnemyInstance);
+        if (currentEnemyHealthSlider != null) Destroy(currentEnemyHealthSlider);
+
+        if (enemyPrefab != null && enemyHealthSliderPrefab != null)
         {
-            GameObject spawnedEnemy = Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.identity);
-            spawnedEnemy.tag = "EnemyClone"; // Assign the tag after instantiation
-            Debug.Log("Spawned enemy at: " + enemySpawnPosition);
+            currentEnemyInstance = Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.identity);
+            currentEnemyInstance.tag = "EnemyClone";
+
+            if (targetCanvas != null)
+            {
+                currentEnemyHealthSlider = Instantiate(enemyHealthSliderPrefab, targetCanvas.transform);
+                Slider sliderComponent = currentEnemyHealthSlider.GetComponent<Slider>();
+
+                EnemyHealth enemyHealth = currentEnemyInstance.GetComponent<EnemyHealth>();
+                if (enemyHealth != null && sliderComponent != null)
+                {
+                    enemyHealth.healthBar = sliderComponent;
+                }
+                else
+                {
+                    Debug.LogWarning("EnemyHealth or Slider component missing!");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Target Canvas is not assigned!");
+            }
+
+            Debug.Log("Spawned enemy and health slider at: " + enemySpawnPosition);
         }
         else
         {
-            Debug.LogWarning("Enemy Prefab is not assigned!");
+            Debug.LogWarning("Enemy prefab or enemy health slider prefab is not assigned!");
         }
-
     }
 
     public void OnQuitButton()

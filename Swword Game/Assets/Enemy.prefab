@@ -1430,6 +1430,8 @@ GameObject:
   - component: {fileID: 4128972090210740366}
   - component: {fileID: 6735124262336033043}
   - component: {fileID: 5137104265796546147}
+  - component: {fileID: -7084611129153982222}
+  - component: {fileID: 7812214006105872577}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -1446,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 7133386662100640504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23179, y: -13.78, z: -141.12}
+  m_LocalPosition: {x: -0.23179, y: 0, z: -141.12}
   m_LocalScale: {x: 1.2652, y: 1.2652, z: 1.2652}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1523,6 +1525,44 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 0}
+--- !u!114 &-7084611129153982222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133386662100640504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac5929ce8497cf47baf7ddcb97717dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 5
+  lightAttackDamage: 10
+  attackDelay: 1.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyDirectionSelector: {fileID: 7812214006105872577}
+--- !u!114 &7812214006105872577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133386662100640504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c39e9aa90907e2b44a9d2054be43c10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topArrow: {fileID: 0}
+  bottomArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
+  rightArrow: {fileID: 0}
+  moveDistance: 20
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7559374941167720902
 GameObject:
   m_ObjectHideFlags: 0
